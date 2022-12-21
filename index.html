@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Criptografica de textos</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Encriptador de textos</h1>
+    </div>
+    <div class="container">
+      <div class="inputext">
+        <h3>insira o texto</h3>
+        <textarea name="area" id="textofunca" cols="50" rows="10"></textarea>
+        <div class="buttons">
+          <button onclick="descriptar()">descriptar</button>
+          <button onclick="criptografar()">encriptar</button>
+        </div>
+      </div>
+
+      <div class="resultados">
+        <h3>resultado</h3>
+        <textarea name="" id="resultado" cols="50" rows="10">
+Nenhuma mensagem encontrada</textarea
+        >
+        <p id="resultadoaas"></p>
+        <button onclick="copiartexto()">copiar texto</button>
+      </div>
+    </div>
+    <div class="footer">
+      <p>criado por Thiago Viegas</p>
+      <p>para o desafio One Alura</p>
+    </div>
+    <script>
+      function criptografar() {
+        let textoteste = document.getElementById("textofunca").value;
+        let criptografa = textoteste;
+        criptografa = criptografa.toLowerCase();
+        criptografa = criptografa.replace(/e/gim, "enter");
+        criptografa = criptografa.replace(/i/gim, "imes");
+        criptografa = criptografa.replace(/a/gim, "ai");
+        criptografa = criptografa.replace(/o/gim, "ober");
+        criptografa = criptografa.replace(/u/gim, "ufat");
+        document.getElementById("resultado").innerHTML = criptografa;
+      }
+      function descriptar() {
+        let textoteste = document.getElementById("textofunca").value;
+        let criptografa = textoteste;
+        criptografa = criptografa.toLowerCase();
+        criptografa = criptografa.replace(/enter/gim, "e");
+        criptografa = criptografa.replace(/imes/gim, "i");
+        criptografa = criptografa.replace(/ai/gim, "a");
+        criptografa = criptografa.replace(/ober/gim, "o");
+        criptografa = criptografa.replace(/ufat/gim, "u");
+        document.getElementById("resultado").innerHTML = criptografa;
+      }
+      function copiartexto() {
+        let textocopiado = document.getElementById("resultado");
+
+        textocopiado.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+      }
+    </script>
+  </body>
+</html>
