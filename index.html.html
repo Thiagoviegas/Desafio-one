@@ -65,7 +65,7 @@ Nenhuma mensagem encontrada</textarea
       }
       function copiartexto() {
         let textocopiado = document.getElementById("resultado");
-
+        textocopiado.select();
         textocopiado.setSelectionRange(0, 99999);
         document.execCommand("copy");
       }
